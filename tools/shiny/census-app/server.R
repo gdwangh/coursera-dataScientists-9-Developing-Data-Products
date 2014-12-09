@@ -13,6 +13,7 @@ shinyServer(
                    "Percent Black" = counties$black,
                    "Percent Hispanic" = counties$hispanic,
                    "Percent Asian" = counties$asian)
+#       browser()
       color <- switch(input$var, 
                       "Percent White" = "darkgreen",
                       "Percent Black" = "black",

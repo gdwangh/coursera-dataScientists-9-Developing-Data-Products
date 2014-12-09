@@ -4,6 +4,7 @@ library(quantmod)
 source("helpers.R")
 
 shinyServer(function(input, output) {
+
   dataInput <- reactive({  
     getSymbols(input$symb, src = "yahoo", 
                from = input$dates[1],
@@ -11,7 +12,8 @@ shinyServer(function(input, output) {
                auto.assign = FALSE)
   })
   
-  finalInput <- reactive({
+  finalInput <- reactive({  
+#     cat("selected stock: ", input$symb)
     if (!input$adjust) return(dataInput())
     adjust(dataInput())
   })
