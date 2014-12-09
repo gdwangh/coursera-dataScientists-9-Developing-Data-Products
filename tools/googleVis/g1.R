@@ -89,3 +89,71 @@ Cal <- gvisCalendar(Cairo,datevar="Date",
 
 cat(Cal$html$chart,file="tools/googleVis/fig/Cal.html")
 
+
+datTL <- data.frame(Position=c(rep("President", 3), rep("Vice", 3)),
+                        Name=c("Washington", "Adams", "Jefferson",
+                                "Adams", "Jefferson", "Burr"),
+                    start=as.Date(x=rep(c("1789-03-29", "1797-02-03", "1801-02-03"),2)),
+                     end=as.Date(x=rep(c("1797-02-03", "1801-02-03",  "1809-02-03"),2)))
+
+Timeline <- gvisTimeline(data=datTL,rowlabel="Name",barlabel="Position",
+                            start="start",
+                           end="end",
+                          options=list(timeline="{groupByRowLabel:false}",
+                          backgroundColor='#ffd',
+                           height=350,
+                           colors="['#cbb69d', '#603913', '#c69c6e']"))
+cat(Timeline$html$chart,file="tools/googleVis/fig/Timeline.html")
+
+
+
+set.seed(123)
+
+datHist=data.frame(A=rpois(100, 20),B=rpois(100, 5), C=rpois(100, 50))
+
+Hist <- gvisHistogram(datHist, options=list(legend="{ position: 'top', maxLines: 2 }",
+ colors="['#5C3292', '#1A8763', '#871B47']",
+  width=400, height=360))
+
+cat(Hist$html$chart,file="tools/googleVis/fig/Hist.html")
+
+
+G <- gvisGeoChart(Exports, "Country", "Profit",options=list(width=300, height=300))
+
+T <- gvisTable(Exports,options=list(width=220, height=300))
+
+GT <- gvisMerge(G,T, horizontal=TRUE)
+cat(GT$html$chart,file="tools/googleVis/fig/GT.html")
+
+
+Geo=gvisGeoMap(Exports, locationvar="Country", numvar="Profit",
+               options=list(height=350, dataMode='regions'))
+
+cat(Geo$html$chart,file="tools/googleVis/fig/Geo.html")
+
+
+AndrewGeo <- gvisGeoMap(Andrew,
+                        locationvar="LatLong",
+                        numvar="Speed_kt",
+                        hovervar="Category",
+                        options=list(height=350,
+                        region="US",
+                        dataMode="markers"))
+cat(AndrewGeo$html$chart,file="tools/googleVis/fig/AndrewGeo.html")
+
+
+
+AnnoTimeLine  <- gvisAnnotatedTimeLine(Stock,
+                                       datevar="Date",
+                                       numvar="Value",
+                                       idvar="Device",
+                                       titlevar="Title",
+                                       annotationvar="Annotation",
+                                       options=list(displayAnnotations=TRUE,
+                                       width="600px", height="350px"))
+cat(AnnoTimeLine$html$chart,file="tools/googleVis/fig/AnnoTimeLine.html")
+
+
+Motion=gvisMotionChart(Fruits,idvar="Fruit",timevar="Year")
+cat(Motion$html$chart,file="tools/googleVis/fig/Motion.html")
+
