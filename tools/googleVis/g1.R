@@ -9,15 +9,13 @@ library(googleVis)
 demo(googleVis)
 vignette("googleVis")
 
-
-
 suppressPackageStartupMessages(library(googleVis))
 
 
 M <- gvisMotionChart(Fruits, "Fruit", "Year", options = list(width = 600, height = 400))
 print(M, "chart")
 plot(M)
-cat(m$html$chart,file="m.html")
+cat(M$html$chart,file="tools/googleVis/fig/m.html")
 
 
 GeoMarker <- gvisGeoChart(Andrew, "LatLong", 
@@ -156,4 +154,21 @@ cat(AnnoTimeLine$html$chart,file="tools/googleVis/fig/AnnoTimeLine.html")
 
 Motion=gvisMotionChart(Fruits,idvar="Fruit",timevar="Year")
 cat(Motion$html$chart,file="tools/googleVis/fig/Motion.html")
+
+
+myStateSettings <-'
+ {"xZoomedDataMin":1199145600000,"colorOption":"2",
+ "duration":{"timeUnit":"Y","multiplier":1},"yLambda":1,
+ "yAxisOption":"4","sizeOption":"_UNISIZE",
+ "iconKeySettings":[],"xLambda":1,"nonSelectedAlpha":0,
+ "xZoomedDataMax":1262304000000,"iconType":"LINE",
+ "dimensions":{"iconDimensions":["dim0"]},
+ "showTrails":false,"uniColorForNonSelected":false,
+ "xAxisOption":"_TIME","orderedByX":false,"playDuration":15000,
+ "xZoomedIn":false,"time":"2010","yZoomedDataMin":0,
+ "yZoomedIn":false,"orderedByY":false,"yZoomedDataMax":100}
+ '
+
+M <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
+cat(M$html$chart,file="tools/googleVis/fig/Ms.html")
 
