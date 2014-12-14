@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CLT - Center Limit Theorem (for means)</title>
+  <meta charset="utf-8">
+  <meta name="description" content="CLT - Center Limit Theorem (for means)">
+  <meta name="author" content="wangh">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>CLT - Center Limit Theorem (for means)</h1>
+    <h2></h2>
+    <p>wangh<br/>study</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Conditions for the CLT</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Independence: Sampled observations must be independent.
+? random sample/assignment
+? if sampling without replacement, n &lt; 10% of population</li>
+<li>Sample size/skew: Either the population distribution is normal, or if the population
+distribution is skewed, the sample size is large (rule of thumb: n &gt; 30).</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Generate random for the Poisson distribution</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>generate a sampleSize * n matrix with variables for the Poisson distribution</p>
+
+<pre><code class="r">sdf&lt;-matrix(rpois(input$n * as.integer(input$sampleSize), input$lambda), input$n)
+</code></pre>
+
+<pre><code>## Error in rpois(input$n * as.integer(input$sampleSize), input$lambda): 找不到对象&#39;input&#39;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>plot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">      avg&lt;-apply(rand_data(), 1, mean)
+</code></pre>
+
+<pre><code>## Error in apply(rand_data(), 1, mean): 没有&quot;rand_data&quot;这个函数
+</code></pre>
+
+<pre><code class="r">      miu&lt;-mean(avg)
+</code></pre>
+
+<pre><code>## Error in mean(avg): 找不到对象&#39;avg&#39;
+</code></pre>
+
+<pre><code class="r">      SE_mean&lt;-sd(avg)
+</code></pre>
+
+<pre><code>## Error in is.data.frame(x): 找不到对象&#39;avg&#39;
+</code></pre>
+
+<pre><code class="r">      wide&lt;-sqrt(input$lambda/10)*3
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): 找不到对象&#39;input&#39;
+</code></pre>
+
+<pre><code class="r">      g_mean &lt;- ggplot(data.frame(avg), aes(x = avg))
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): 没有&quot;ggplot&quot;这个函数
+</code></pre>
+
+<pre><code class="r">      g_mean &lt;- g_mean + labs(title = paste(&#39;mean = &#39;, round(miu,4),&quot;, SE = &quot;, round(SE_mean,4)))
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): 找不到对象&#39;g_mean&#39;
+</code></pre>
+
+<pre><code class="r">      g_mean &lt;- g_mean + labs(x=&quot;sample mean&quot;)
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): 找不到对象&#39;g_mean&#39;
+</code></pre>
+
+<pre><code class="r">      g_mean &lt;- g_mean + xlim(miu-wide, miu+wide)
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): 找不到对象&#39;g_mean&#39;
+</code></pre>
+
+<pre><code class="r">      g_mean &lt;- g_mean + geom_histogram(fill = &quot;salmon&quot;,binwidth =wide/40,aes(y = ..density..), colour = &quot;black&quot;)
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): 找不到对象&#39;g_mean&#39;
+</code></pre>
+
+<pre><code class="r">      g_mean &lt;- g_mean + geom_density(size = 1) + geom_vline(xintercept = miu, color=&quot;blue&quot;,size =1)
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): 找不到对象&#39;g_mean&#39;
+</code></pre>
+
+<pre><code class="r">      g_mean
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): 找不到对象&#39;g_mean&#39;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Conditions for the CLT'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Generate random for the Poisson distribution'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='plot'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title=''>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
