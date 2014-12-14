@@ -1,0 +1,26 @@
+CLT  for mean
+========================================================
+author: wang hui
+date: `r date()`
+
+Conditions for the CLT:
+========================================================
+
+1. Independence: Sampled observations must be independent.
+‣ random sample/assignment if sampling without replacement, n < 10% of population
+2. Sample size/skew: Either the population distribution is normal, or if the population distribution is skewed, the sample size is large (rule of thumb: n > 30).
+
+Slide With Code
+========================================================
+
+```{r}
+summary(cars)
+```
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
