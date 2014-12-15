@@ -2,8 +2,8 @@ library(data.table)
 
 Sys.setlocale('LC_ALL', 'English')
 
-# rawURL<-"data/StormData.csv.bz2"
-rawURL<-"courseproject/clean_for_shinyWeather/StormData.csv.bz2"
+rawURL<-"D:/doc/study/dataScientists/5-Reproducible Research/StormData.csv.bz2"
+#rawURL<-"courseproject/clean_for_shinyWeather/StormData.csv.bz2"
 
 # To minimize the data in memroy, only load the columns to be used
 to_read = c("NULL", NA,rep("NULL",4),NA,NA,rep("NULL",14),rep(NA,6),rep("NULL",8),NA)
