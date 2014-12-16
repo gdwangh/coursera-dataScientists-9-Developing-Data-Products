@@ -1,0 +1,26 @@
+.reveal pre code {
+  display: block; padding: 0.5em;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  background-color: white;
+  overflow: visible;
+  max-width: 100%;
+  max-height: none;
+  word-wrap: normal;
+}
+
+.reveal .slides section .slideContent p {
+   font-size: 0.9em;
+}
+
+.reveal .slides section .slideContent ul li {
+   font-size: 0.9em;
+}
+
+.reveal small {
+  font-size: 0.85em;
+}
+
+.reveal .img {
+     float: center;
+}

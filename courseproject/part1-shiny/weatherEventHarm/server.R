@@ -33,7 +33,7 @@ shinyServer(
         mapplot(region~harm_popu|valid_type, data = data,xlab="",map = map("state",plot = FALSE, fill = TRUE), colramp = colorRampPalette(c("blue","red")))
       }  else {
         data<-influnce_cost(input$topn)
-        mapplot(region~cost_sum|valid_type, data = data,xlab="",map = map("state",plot = FALSE, fill = TRUE), colramp = colorRampPalette(c("blue","red")))
+        mapplot(region~cost_sum|valid_type, data = data,xlab="", map = map("state",plot = FALSE, fill = TRUE), colramp = colorRampPalette(c("blue","red")))
       }
     })
     
