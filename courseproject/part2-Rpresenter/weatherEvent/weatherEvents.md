@@ -1,7 +1,7 @@
 Weather event types most harmful to public health and economic
 ========================================================
 author: gdwangh
-date: Tue Dec 16 18:15:58 2014
+date: Tue Dec 16 22:41:31 2014
 transition: rotate
 
 Introduction
@@ -62,7 +62,8 @@ n=5; topN<-sorted_popu_sum[1:n,]; topN
 ```r
 other<-data.table(valid_type="** Others",sum=sum(sorted_popu_sum[(n+1):nrow(sorted_popu_sum),]$sum))
 data<-rbind(topN, other)
-pie(data$sum, labels=data$valid_type, col=rainbow(length(data$valid_type)),main="FATALITIES & INJURIES")
+pie(data$sum, labels=data$valid_type, col=rainbow(length(data$valid_type)),
+    main="FATALITIES & INJURIES")
 ```
 
 ![plot of chunk unnamed-chunk-3](weatherEvents-figure/unnamed-chunk-3-1.png) 

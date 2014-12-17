@@ -56,7 +56,8 @@ n=5; topN<-sorted_popu_sum[1:n,]; topN
 ```{r}
 other<-data.table(valid_type="** Others",sum=sum(sorted_popu_sum[(n+1):nrow(sorted_popu_sum),]$sum))
 data<-rbind(topN, other)
-pie(data$sum, labels=data$valid_type, col=rainbow(length(data$valid_type)),main="FATALITIES & INJURIES")
+pie(data$sum, labels=data$valid_type, col=rainbow(length(data$valid_type)),
+    main="FATALITIES & INJURIES")
 ```
 
 Code for mapplot
