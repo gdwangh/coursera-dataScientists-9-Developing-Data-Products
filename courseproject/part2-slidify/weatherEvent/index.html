@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather event types most harmful to public health and economic</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Weather event types most harmful to public health and economic">
+  <meta name="author" content="gdwangh">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+<link rel=stylesheet href="./assets/css/weatherEvents.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Weather event types most harmful to public health and economic</h1>
+    <h2></h2>
+    <p>gdwangh<br/>students</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p><strong>goal</strong></p>
+
+<p>The severe weather events to cause public health and economic problems cross US</p>
+
+<ul>
+<li>public health : FATALITIES + INJURIES </li>
+<li>economic : PROPDMG + CROPDMG </li>
+</ul></li>
+<li><p><strong>data</strong>: the NOAA Storm Database   </p>
+
+<p><small> <a href="http://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2">http://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2</a> </small></p></li>
+<li><p>clean the data as the document:   </p>
+
+<p><small> <a href="http://rpubs.com/gdwangh/rr_ass2">http://rpubs.com/gdwangh/rr_ass2</a> </small></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="websiteImg" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>The website</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><a href="https://gdwangh.shinyapps.io/weatherEventHarm/">https://gdwangh.shinyapps.io/weatherEventHarm/</a></p>
+
+<div style='float:left;width:70%;'>
+  <p><img src="img/harmEvent.png" alt="website"></p>
+
+</div>
+<div style='float:right;width:30%;'>
+  <h3>choose</h3>
+
+<ul>
+<li>event type to stat
+
+<ul>
+<li>population</li>
+<li>cost</li>
+</ul></li>
+<li>top n</li>
+</ul>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>code for the top n (e.g. n=5)</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>## data.table 1.9.2  For help type: help(&quot;data.table&quot;)
+</code></pre>
+
+<pre><code class="r">popu_sum&lt;-popu[,sum(harm_popu),by=valid_type]
+setnames(popu_sum, &quot;V1&quot;, &quot;sum&quot;)
+sorted_popu_sum&lt;&lt;-popu_sum[order(popu_sum$sum, decreasing=TRUE)]
+n=5; topN&lt;-sorted_popu_sum[1:n,] 
+other&lt;-data.table(valid_type=&quot;** Others&quot;,sum=sum(sorted_popu_sum[(n+1):nrow(sorted_popu_sum),]$sum))
+data&lt;-rbind(topN, other)
+</code></pre>
+
+<div style='float:left;width:30%;'>
+  <pre><code class="r">topN
+</code></pre>
+
+<pre><code>##           valid_type   sum
+## 1:           Tornado 24949
+## 2:    Excessive Heat  8447
+## 3:             Flood  7278
+## 4: Thunderstorm Wind  6635
+## 5:         Lightning  6049
+</code></pre>
+
+</div>
+<div style='float:right;width:70%;'>
+  <pre><code class="r">pie(data$sum, labels=data$valid_type, col=rainbow(length(data$valid_type)),main=&quot;FATALITIES &amp; INJURIES&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4"> </p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Code for mapplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(choroplethrMaps); library(maps); library(latticeExtra);data(state.regions)
+
+pmelt&lt;-melt(subset(popu, valid_type %in% sorted_popu_sum[1:n,]$valid_type), 
+            id.vars=c(&quot;valid_type&quot;, &quot;STATE&quot;),measure.vars=c(&quot;harm_popu&quot;))
+popu_state_sum&lt;-dcast(pmelt,STATE+valid_type~variable, fun=sum)  
+data&lt;-merge(popu_state_sum, subset(state.regions,!abb %in% c(&quot;HI&quot;,&quot;AK&quot;), 
+        select=c(&quot;region&quot;,&quot;abb&quot;)), by.x=&quot;STATE&quot;,by.y=&quot;abb&quot;)
+mapplot(region~harm_popu|valid_type, layout=c(3,2), data = data,xlab=&quot;&quot;, 
+        map = map(&quot;state&quot;,plot=FALSE, fill = TRUE), colramp = colorRampPalette(c(&quot;blue&quot;,&quot;red&quot;)))
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The website'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='code for the top n (e.g. n=5)'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Code for mapplot'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

@@ -1,0 +1,9 @@
+base
+slidify
+choroplethrMaps
+maps
+RColorBrewer
+lattice
+latticeExtra
+data.table
+reshape2
