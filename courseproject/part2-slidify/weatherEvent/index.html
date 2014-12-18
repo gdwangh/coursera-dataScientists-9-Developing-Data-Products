@@ -113,7 +113,7 @@ other&lt;-data.table(valid_type=&quot;** Others&quot;,sum=sum(sorted_popu_sum[(n
 data&lt;-rbind(topN, other)
 </code></pre>
 
-<div style='float:left;width:48%;'>
+<div style='float:left;width:30%;'>
   <pre><code class="r">topN
 </code></pre>
 
@@ -126,10 +126,8 @@ data&lt;-rbind(topN, other)
 </code></pre>
 
 </div>
-<div style='float:right;width:48%;'>
-  <pre><code class="r">pie(data$sum, labels=data$valid_type, 
-    col=rainbow(length(data$valid_type)),
-    main=&quot;FATALITIES &amp; INJURIES&quot;)
+<div style='float:right;width:70%;'>
+  <pre><code class="r">pie(data$sum, labels=data$valid_type, col=rainbow(length(data$valid_type)),main=&quot;FATALITIES &amp; INJURIES&quot;)
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4"> </p>
