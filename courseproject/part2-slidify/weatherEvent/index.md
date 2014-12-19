@@ -50,9 +50,6 @@ https://gdwangh.shinyapps.io/weatherEventHarm/
 
 ## code for the top n (e.g. n=5)
 
-```
-## data.table 1.9.2  For help type: help("data.table")
-```
 
 
 ```r
@@ -84,7 +81,11 @@ topN
 
 
 ```r
+<<<<<<< HEAD
 pie(data$sum, labels=data$valid_type, col=rainbow(length(data$valid_type)),main="FATALITIES & INJURIES")
+=======
+pie(data$sum, labels=data$valid_type,col=rainbow(length(data$valid_type)),main="FATALITIES & INJURIES")
+>>>>>>> 3819d9eb4c35b2c04b75d4ef4225f8bc93d987a4
 ```
 
 ![plot of chunk unnamed-chunk-4](assets/fig/unnamed-chunk-4-1.png) 

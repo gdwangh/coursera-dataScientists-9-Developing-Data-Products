@@ -1,0 +1,10 @@
+Package: predictorSel
+Type: Package
+Title: select predictors by backword method
+Version: 1.0
+Date: 2014-12-19
+Author: wanghui
+Maintainer: wangh <gdwangh@189.cn>
+Description: select predictors by backword method, with the ordered importance to select the features
+License: GLP-3
+
