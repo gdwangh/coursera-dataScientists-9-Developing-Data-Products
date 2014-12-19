@@ -65,18 +65,16 @@ other<-data.table(valid_type="** Others",sum=sum(sorted_popu_sum[(n+1):nrow(sort
 data<-rbind(topN, other)
 ```
 
-*** =left w:48%
+*** =left w:30%
 
 ```{r}
 topN
 ```
 
-*** =right w:48%
+*** =right w:70%
 
 ```{r,fig.height=5}
-pie(data$sum, labels=data$valid_type, 
-    col=rainbow(length(data$valid_type)),
-    main="FATALITIES & INJURIES")
+pie(data$sum, labels=data$valid_type,col=rainbow(length(data$valid_type)),main="FATALITIES & INJURIES")
 ```
 
 --- .class #id 

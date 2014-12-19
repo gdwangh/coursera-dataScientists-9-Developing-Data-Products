@@ -64,7 +64,7 @@ other<-data.table(valid_type="** Others",sum=sum(sorted_popu_sum[(n+1):nrow(sort
 data<-rbind(topN, other)
 ```
 
-*** =left w:48%
+*** =left w:30%
 
 
 ```r
@@ -80,13 +80,11 @@ topN
 ## 5:         Lightning  6049
 ```
 
-*** =right w:48%
+*** =right w:70%
 
 
 ```r
-pie(data$sum, labels=data$valid_type, 
-    col=rainbow(length(data$valid_type)),
-    main="FATALITIES & INJURIES")
+pie(data$sum, labels=data$valid_type,col=rainbow(length(data$valid_type)),main="FATALITIES & INJURIES")
 ```
 
 ![plot of chunk unnamed-chunk-4](assets/fig/unnamed-chunk-4-1.png) 
