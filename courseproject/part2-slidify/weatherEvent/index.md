@@ -50,9 +50,6 @@ https://gdwangh.shinyapps.io/weatherEventHarm/
 
 ## code for the top n (e.g. n=5)
 
-```
-## data.table 1.9.2  For help type: help("data.table")
-```
 
 
 ```r

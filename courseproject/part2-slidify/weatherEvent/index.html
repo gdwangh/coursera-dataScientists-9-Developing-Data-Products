@@ -102,10 +102,7 @@
     <h2>code for the top n (e.g. n=5)</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code>## data.table 1.9.2  For help type: help(&quot;data.table&quot;)
-</code></pre>
-
-<pre><code class="r">popu_sum&lt;-popu[,sum(harm_popu),by=valid_type]
+    <pre><code class="r">popu_sum&lt;-popu[,sum(harm_popu),by=valid_type]
 setnames(popu_sum, &quot;V1&quot;, &quot;sum&quot;)
 sorted_popu_sum&lt;&lt;-popu_sum[order(popu_sum$sum, decreasing=TRUE)]
 n=5; topN&lt;-sorted_popu_sum[1:n,] 
