@@ -28,7 +28,7 @@ knit        : slidify::knit2slides
 
   <small> http://rpubs.com/gdwangh/rr_ass2 </small>
 
---- .websiteImg &twocol
+--- .websiteImg &twocol 
 
 ## The website
 
@@ -50,9 +50,6 @@ https://gdwangh.shinyapps.io/weatherEventHarm/
 
 ## code for the top n (e.g. n=5)
 
-```
-## data.table 1.9.2  For help type: help("data.table")
-```
 
 
 ```r
@@ -83,8 +80,10 @@ topN
 *** =right w:70%
 
 
+
 ```r
-pie(data$sum, labels=data$valid_type, col=rainbow(length(data$valid_type)),main="FATALITIES & INJURIES")
+pie(data$sum, labels=data$valid_type, col=rainbow(length(data$valid_type)),
+      main="FATALITIES & INJURIES")
 ```
 
 ![plot of chunk unnamed-chunk-4](assets/fig/unnamed-chunk-4-1.png) 

@@ -1,0 +1,6 @@
+setwd("D:/workspace/dataScientists/9-Developing Data Products/coursera-dataScientists-9-Developing-Data-Products/courseproject/part2-slidify/weatherEvent")
+
+setwd("D:/doc/study/dataScientists/9-Developing Data Products/coursera-dataScientists-9-Developing-Data-Products/courseproject/part2-slidify/weatherEvent")
+
+slidify("index.Rmd")
+publish_rpubs("Most harmful weather event type with slidify",html_file="index.html")
