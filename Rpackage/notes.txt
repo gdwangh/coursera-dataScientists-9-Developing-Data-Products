@@ -1,0 +1,6 @@
+补充说明：
+1、title：DESCRIPTION文件要写，同时在Rcode相应函数前的@title也要写。
+2、import：需要用到的包，在DESCRIPTION文件的import：部分要写，在R code相应函数前的@import*也要写。
+3、测试代码放在tests目录下。
+
+需要安装包：roxygen2

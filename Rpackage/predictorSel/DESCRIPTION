@@ -5,6 +5,7 @@ Version: 1.0
 Date: 2014-12-19
 Author: wanghui
 Maintainer: wangh <gdwangh@189.cn>
-Description: select predictors by backword method, with the ordered importance to select the features
+Depends: R (>= 3.1.2)
+Imports: caret, randomForest
+Description: select predictors by backword method, with the most importance to select the features
 License: GLP-3
-
