@@ -1,7 +1,21 @@
-library(randomForest)
+#' @param f formula 
+#' @param train_data the dataframe for training data set
+#' @param valid_x the dataframe for predictors in valid data set 
+#' @param valid_y the vector for responser for valid data set
+#' @param acc_thresh the numeric value of the accuracy thresh hold to stop
+#' @return a list of the predictors' names
+#' @author wangh
+#' @title select predictors in randomForest
+#' @details
+#' This function return the name list for predictors in RandomForest with the most importance calculated by varImp()
+#' and accuracy higher than acc_thresh.
+#' @seealso \code{randomForest}, \code{confusionMatrix}, \code{varImp}
+#' @importFrom caret confusionMatrix
+#' @importFrom caret varImp
+#' @importFrom randomForest randomForest
+#' @export
 
-#' @param f fomula 
-#' 
+
 modelSel_rf<-function(f, train_data, valid_x, valid_y, acc_thresh=0.99)  {
   acc_list<-{}
   remove_flist<-{}

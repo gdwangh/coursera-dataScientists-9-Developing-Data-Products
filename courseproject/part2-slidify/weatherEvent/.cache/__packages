@@ -7,3 +7,4 @@ lattice
 latticeExtra
 data.table
 reshape2
+devtools

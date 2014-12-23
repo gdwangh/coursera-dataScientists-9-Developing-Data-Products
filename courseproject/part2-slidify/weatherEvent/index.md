@@ -28,7 +28,7 @@ knit        : slidify::knit2slides
 
   <small> http://rpubs.com/gdwangh/rr_ass2 </small>
 
---- .websiteImg &twocol
+--- .websiteImg &twocol 
 
 ## The website
 
@@ -80,8 +80,10 @@ topN
 *** =right w:70%
 
 
+
 ```r
-pie(data$sum, labels=data$valid_type,col=rainbow(length(data$valid_type)),main="FATALITIES & INJURIES")
+pie(data$sum, labels=data$valid_type, col=rainbow(length(data$valid_type)),
+      main="FATALITIES & INJURIES")
 ```
 
 ![plot of chunk unnamed-chunk-4](assets/fig/unnamed-chunk-4-1.png) 
