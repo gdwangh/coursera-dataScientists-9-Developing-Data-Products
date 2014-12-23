@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Electricity_Total Cost</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Electricity_Total Cost">
+  <meta name="author" content="srngit">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Electricity_Total Cost</h1>
+    <h2>Slidify my Shiny App</h2>
+    <p>srngit<br/>io2012</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Brief about the Shiny App</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>This application is made to demonstrate Shiny application </p></li>
+<li><p>This Application is for &quot;Electricity&#39; generators using Coal as fuel. </p></li>
+<li><p>Given a set of parameters, the application calculated the total cost of Elecetricity in Cents/Units.</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Electricity Cost</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>Fuel Cost of Electricity Generations is a function of Heat Rate and the Quality of the fuel. </p></li>
+<li><p>Heat Rate :  Generation station&#39;s efficiency is determined by Heat Rate ( Kacal/Unit) defined as the heat requirement of the Generation system in producing a unit of electricity (kwh).</p></li>
+<li><p>Quality or the heat value of coal is given in terms of Gross Calorific Value (GCV) - Kcal/kg</p></li>
+<li><p>Coal Required = Heat Rate/GCV</p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Application of Shiny App</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>Electricity Generators face a dynamic issue of producing at lowest cost given a portfolio of assets/plants having different efficieninces(Heat Rate) Heat the choice  how much the in Develoing EcFuel Cost of Electricity.</p></li>
+<li><p>Electricity prices are also dynamic in nature, with rates changing even during the day. </p></li>
+<li><p>Given a set of parameters, such as the Heat Rate of the plant and the Cost of Domestic and Imported fuels, </p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Input Parameters</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Following are the input parameters :</li>
+</ol>
+
+<ul>
+<li>Heat Rate</li>
+<li>Fuel Mix</li>
+<li>Cost of Domestic Fuel</li>
+<li>Cost of Imported Fuel</li>
+</ul>
+
+<ol>
+<li><p>Heat Rates typically range from 2,200 and 2,800 Kcal/Unit which is the range within which user can slide.   </p></li>
+<li><p>GCV of Imported coal is set at 5,400 and while GCV of Domestic coal is set at 3,600 in the application.</p></li>
+<li><p>Cost of Domestic Coal Ranges from $40-60 per ton while Import coal cost anywhere in the range $70-100 per ton. Users can change the values within the above ranges.  </p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How to Use</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><p>Application is simple and easy to use.</p></li>
+<li><p>For any modification, users nned o have RStudio installed.</p></li>
+<li><p>Please download the application files from the following link. There will be two files - ui.R and server.R ; Please keep both files in single folder.</p></li>
+<li><p>Once you downloaded files, please set the working directory to the folder using:</p></li>
+</ol>
+
+<pre><code class="r">setwd(&quot;your folder path&quot;)
+</code></pre>
+
+<ol>
+<li>In RStudio&#39;s console, simply run the command at the &gt; prompt.</li>
+</ol>
+
+<pre><code class="r">runApp()
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Brief about the Shiny App'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Electricity Cost'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Application of Shiny App'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Input Parameters'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='How to Use'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

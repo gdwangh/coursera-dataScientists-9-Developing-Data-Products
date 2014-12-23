@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AirQuality Data Analysis App v11.0</title>
+  <meta charset="utf-8">
+  <meta name="description" content="AirQuality Data Analysis App v11.0">
+  <meta name="author" content="Manu B. V.">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="libraries/widgets/quiz/css/demo.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/rNVD3.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  <script src="libraries/widgets/nvd3/js/jquery-1.8.2.min.js"></script>
+<script src="libraries/widgets/nvd3/js/d3.v3.min.js"></script>
+<script src="libraries/widgets/nvd3/js/nv.d3.min-new.js"></script>
+<script src="libraries/widgets/nvd3/js/fisheye.js"></script>
+
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>AirQuality Data Analysis App v11.0</h1>
+    <h2></h2>
+    <p>Manu B. V.<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>About this App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This App was created for Johns Hopkins &#39;Developing Data Products&#39; Course (teached by Brian Caffo) on coursera.org and its purpose is only academic.</p>
+
+<p>With this App you&#39;ll be able to:</p>
+
+<ol>
+<li>Study and analyse rapid and easily the &#39;airquality&#39; R dataset values and variables.</li>
+<li>Sort, extract and play around with its values and variables displayed on a datatable.</li>
+<li>Create X vs Y plots and customize the variables shown, the elements plotted, their colors, add fit lines and areas and know some information about the data.</li>
+</ol>
+
+<p>You can access the App clicking on <a href="https://manuelblancovalentin.shinyapps.io/AirQuality-Data-Analysis-App-v11/">here</a>.</p>
+
+<p>Or visit its GitHub Repo clicking on <a href="https://github.com/manuelblancovalentin/DevelopingDataProducts-Project/">here</a>.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The Airquality dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The airquality dataset comes with the dataset package and provides a total of 153 measurements of Ozone and Solar Radiation levels, wind velocity (in mph), and Temperature (in Fahrenheit), taken from 1st May 1974 to 30th Sep of the same year at La Guardia Airport, NYC.</p>
+
+<p>See the first rows below:</p>
+
+<pre><code>##   Ozone Solar.R Wind Temp Month Day
+## 1    41     190  7.4   67     5   1
+## 2    36     118  8.0   72     5   2
+## 3    12     149 12.6   74     5   3
+</code></pre>
+
+<p>Month and day columns have been merged to one. The final data table looks like below: </p>
+
+<pre><code>##   Ozone Solar.R Wind Temp   DateTime
+## 1    41     190  7.4   67 1974-05-01
+## 2    36     118  8.0   72 1974-05-02
+## 3    12     149 12.6   74 1974-05-03
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Navigating the App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Once you enter the App you&#39;ll see a navigation Bar just like the one on the image below: </p>
+
+<p><img src="navbar.png" alt="width"></p>
+
+<p>To move around the App just click on any of those tabs:</p>
+
+<ul>
+<li><b>1. About the app:</b> On this tab you can find some information about the App, the data used, etc.</li>
+
+<li><b>2. How to use this App:</b> Here you will find a few instructions that might help you getting used to the App and all its functions. </li>
+
+<li><b>3. Plot:</b> On this tab you will be able to Plot the airquality data. </li>
+
+<li><b>4. Table:</b> On this tab you will be able to see the airquality data on a table. </li>
+
+<li><b>5. Reference sources and code:</b> All references sources, links and code links itself are shown at this tab (if anyone is interested on). </li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Plot and Table</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Use the table to visualize your data, play around with the variables, sort them or search for any values on them. Download the table to a txt, csv or xls file.
+<img src="table.png" alt="width"></p>
+
+<p>Or create X vs Y plots of any variables you want, add fit lines, change its color, get information about maximum, minimum, average values and Zoom on X and Y axis values.
+<img src="plot.png" alt="width"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='About this App'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The Airquality dataset'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Navigating the App'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Plot and Table'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+<script src="libraries/widgets/quiz/js/jquery.quiz.js"></script>
+<script src="libraries/widgets/quiz/js/mustache.min.js"></script>
+<script src="libraries/widgets/quiz/js/quiz-app.js"></script>
+
+  <script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
