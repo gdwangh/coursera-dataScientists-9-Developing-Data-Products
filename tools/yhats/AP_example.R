@@ -55,17 +55,17 @@ model.transform <- function(df) {
   df
 }
 
-# the key one
-model.predict <- function(df) {
+
+model.predict <- function(df) {  # the key one
   pollutant(df)
 }
 
 
 
 yhat.config <- c(
-  username="rdpeng@gmail.com",
-  apikey="90d2a80bb532cabb2387aa51ac4553cc",
-  env="http://sandbox.yhathq.com/"
+  username="gdwangh@189.cn",
+  apikey="26e1004eb3c4872b3e9d7a9004e22dcf",
+  env="http://cloud.yhathq.com/"
 )
 yhat.deploy("pollutant")
 ################################################################################
@@ -74,8 +74,9 @@ library(yhatr)
 yhat.config <- c(
 username="rdpeng@gmail.com",
 apikey="90d2a80bb532cabb2387aa51ac4553cc",
-env="http://sandbox.yhathq.com/"
+env="http://cloud.yhathq.com/"
 )
+
 df <- data.frame(lon = c(-76.6167, -118.25), lat = c(39.2833, 34.05),
 radius = 20)
 yhat.predict("pollutant", df)
